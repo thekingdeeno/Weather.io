@@ -1,0 +1,162 @@
+<%- include('partials/header') -%>
+
+
+
+
+
+<!-- weather info styling  -->
+
+<style>
+
+.navbar{
+    margin: 0 0 80px 0;
+}
+
+#container{
+    background-color: #000000b4;
+    border-radius: 10px;
+    width: 50%;
+    margin: auto;
+    padding: 40px;
+}
+
+
+
+
+#heading h2{
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+#heading h1{
+    font-weight: 200;
+    font-size: 60px;
+}
+
+#heading p{
+    font-weight: 200;
+}
+
+#small-text{
+    font-size: 12px;
+}
+
+#other-units{
+    font-size: 15px;
+}
+
+#home-btn a{
+    text-decoration: none;
+}
+
+footer{
+    background-color: #000000b4;
+}
+
+@media(max-width: 950px){
+    #container{
+        width: 80%;
+        margin-bottom: 60px;
+    }
+}
+
+</style>
+
+
+
+
+
+
+<!-- html content  -->
+
+<div id="container">
+
+<div id="heading">
+    <h2><%= cityName %></h2>
+    <h1><%= temperature %>˚</h1>
+    <p><%= description %></p>
+
+    <p>H:<%= highTemp %>˚   L:<%= lowTemp %>˚</p>
+</div>
+
+<div id="icon">
+    <img src="<%= iconUrl %>" alt="<%= icon %>">
+</div>
+
+<div id="more-info">
+    <p id="small-text"><%= weather %> will continue for the rest of the day. <br>
+        Wind speeds are <%= windSpeed %> km/h and gusts are up to <%= windGust %> km/h</p>
+
+    <p id="other-units">Pressure: <%= airPressure %>hPa <br> Humidity: <%= humidity %>%</p>
+</div>
+
+<button id="home-btn" class="btn btn-dark" ><a href="/home">Home</a></button>
+
+</div>
+
+
+
+
+
+
+
+
+<!-- javascript code  -->
+
+
+<script>
+    let iconCode = $("img").attr("alt");
+
+    // code to determine time of day 
+
+    let timeOfDay = ""
+    if (iconCode[2] === "d") {
+        timeOfDay = "day";
+    }else{
+        timeOfDay = "night";
+    }
+
+    // code to determine icon weather conditions
+    let iconNo = iconCode[0]+iconCode[1];
+    let bgImage = "";
+
+    if (iconNo === "01") {
+        bgImage = "clearsky"
+    };
+
+    if (iconNo === "02" || iconNo === "03" || iconNo === "04") {
+        bgImage = "cloudy"
+    };
+
+    if (iconNo === "09" || iconNo === "10" || iconNo === "11") {
+        bgImage = "rainy"
+    };
+
+    if (iconNo === "13") {
+        bgImage = "snowy"
+    };
+
+    $('body').css('backgroundImage', 'url("/images/' + bgImage + timeOfDay + '.jpg ")');
+
+
+    // code to change the style of button depending on time of day
+
+    if (iconCode[2] === "d") {
+
+        $("#home-btn").attr("class", "btn btn-dark");
+        $("#home-btn a").css("color", "#ffffff");
+
+    }else{
+
+        $("#home-btn").attr("class", "btn btn-light");
+        $("#home-btn a").css("color", "#000000");
+    };
+
+
+</script>
+
+
+
+
+<!-- <%- include('partials/footer') %> 

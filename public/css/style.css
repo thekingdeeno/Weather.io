@@ -1,0 +1,114 @@
+body{
+    background-image: url("/images/homepage.jpg");
+    background-size: cover;
+    text-align: center;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+};
+
+nav{
+    /* padding-bottom: 100px; */
+    position: absolute;
+    width: 100%;
+}
+
+.navbar{
+    padding:20px 0;
+}
+
+.navbar-brand{
+    padding-left: 20px;
+}
+
+.navbar-brand:hover{
+    font-size: 21px;
+    transition: 300ms;
+}
+
+.navbar-toggler{
+    position: absolute;
+    right: 0px;
+    margin-right: 20px;
+}
+
+#homepage-cta{
+    display: flex;
+    justify-content: center;
+    padding: 80px 0px 60px 0px;
+}
+
+#homepage-cta h1{
+    padding: 50px 20px 30px 20px;
+    font-size: 50px;
+    width: 50%;
+}
+
+
+#site-link{
+    text-decoration: none;
+    color: white;
+    padding: 17px;
+    background-color: rgb(34, 33, 33);
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+#site-link:hover{
+    background-color: rgb(48, 48, 48);
+}
+
+
+/* footer */
+
+footer{
+    padding: 120px 0px 0px 0px;
+    /* position: fixed; */
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+footer a{ text-decoration: none;}
+
+
+footer p{
+    padding: 25px 0px 0px 0px;
+}
+
+footer p a{
+    text-decoration: none;
+    color: rgb(231, 100, 100);
+}
+
+footer p a:hover{
+    color: rgb(216, 14, 132);
+}
+
+footer i:hover{
+    font-size: x-large;
+    transition: 250ms;
+}
+
+@media(max-width: 950px){
+    #homepage-cta h1{
+        padding: 20px 20px 30px 20px;
+        font-size: 50px;
+        width: 90%;
+    }
+
+    .navbar-toggler{
+        position: absolute;
+        right: 0px;
+        margin-right: 20px;
+    }
+
+    footer{
+        padding: 150px 0px 0px 0px;
+        /* position: fixed; */
+        bottom: 0px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
